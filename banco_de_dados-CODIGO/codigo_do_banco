@@ -1,0 +1,43 @@
+create database jogos;
+
+use jogos;
+
+CREATE TABLE jogo (
+    id_jogo INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    desenvolvedora VARCHAR(100) NOT NULL,
+    genero_id INT,
+    sinopse TEXT,
+    FOREIGN KEY (genero_id) REFERENCES generos(id_genero)
+);
+
+INSERT INTO jogos (id_jogo, nome, desenvolvedora, genero_id, sinopse) 
+VALUES
+(1, 'Minecraft', 'Mojang Studios', 1, 'Jogo de sobrevivência e construção em um mundo aberto de blocos.'),
+(2, 'Terraria', 'Re-Logic', 1, 'Jogo de exploração, construção e combate em um mundo 2D.'),
+(3, 'Hollow Knight', 'Team Cherry', 2, 'Aventura em um reino subterrâneo habitado por insetos.'),
+(4, 'Stardew Valley', 'ConcernedApe', 3, 'Simulação de fazenda com plantações, animais e relacionamentos.'),
+(5, 'The Witcher 3: Wild Hunt', 'CD Projekt Red', 4, 'RPG de mundo aberto protagonizado por Geralt de Rívia.'),
+(6, 'Grand Theft Auto V', 'Rockstar North', 5, 'Jogo de ação e mundo aberto ambientado em Los Santos.'),
+(7, 'Celeste', 'Maddy Makes Games', 6, 'Jogo de plataforma sobre a escalada de uma montanha.'),
+(8, 'Resident Evil 4', 'Capcom', 7, 'Jogo de terror e sobrevivência com Leon Kennedy.'),
+(9, 'Rocket League', 'Psyonix', 8, 'Jogo competitivo que mistura futebol e carros.'),
+(10, 'Undertale', 'Toby Fox', 9, 'RPG em que uma criança explora um mundo subterrâneo de monstros.');
+
+CREATE TABLE generos (
+    id_genero INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT
+);
+
+INSERT INTO generos (id_genero, nome, descricao) 
+VALUES
+(1, 'Sandbox', 'Permite explorar, construir e modificar livremente o mundo do jogo.'),
+(2, 'Metroidvania', 'Combina exploração, combate e desbloqueio de novas áreas.'),
+(3, 'Simulação', 'Reproduz atividades do cotidiano, como administrar uma fazenda.'),
+(4, 'RPG', 'Focado na evolução de personagens, missões e escolhas narrativas.'),
+(5, 'Ação e Mundo Aberto', 'Permite explorar cenários amplos e realizar missões.'),
+(6, 'Plataforma', 'Envolve saltos, obstáculos e desafios de movimentação.'),
+(7, 'Terror e Sobrevivência', 'Combina terror, recursos limitados e ameaças.'),
+(8, 'Esportes', 'Baseado em atividades esportivas e competições.'),
+(9, 'RPG de Turnos', 'Possui combates em turnos e decisões estratégicas.');
